@@ -1,0 +1,55 @@
+1) 
+nums = list(map(int, input().split()))  
+for num in nums:  
+    if num > 50: 
+        break  
+    if num % 5 == 0:  
+        continue  
+    print(num, end=" ")  
+
+2)
+pwd = input()   
+if len(pwd) < 6 or pwd.isalpha():   
+    print("Weak")  
+elif any(c.isdigit() for c in pwd) and any(c.isalpha() for c in pwd):  
+    if len(pwd) >= 8 and any(c in "@#$%&" for c in pwd):  
+        print("Strong")  
+    else:  
+        print("Moderate")  
+else:  
+    print("Weak")  
+
+3)
+words = input().split()    
+print(" ".join(word[::-1] if i % 2 else word for i, word in enumerate(words)))  
+
+4)
+words = input().split()   
+freq = {}   
+for word in words:  
+    freq[word] = freq.get(word, 0) + 1   
+print({k: v for k, v in freq.items() if v > 1})    
+
+5)
+books = {'Book1': 5, 'Book2': 6, 'Book3': 10}    
+book = input("Enter book name: ")  
+while True:  
+    copies = input("Enter copies: ")   
+    if copies.isdigit():   
+        copies = int(copies)  
+        break  
+    print("Invalid input. Enter a number.")  
+if book in books:    
+    if books[book] >= copies:  
+        print("Available")  
+    else:  
+        print("Partially Available")  
+else:  
+    print("Unavailable")  
+
+6)
+words = input().split()    
+freq = {}  
+for word in words:  
+    freq[word.lower()] = freq.get(word.lower(), 0) + 1  
+print(freq)  
